@@ -1,0 +1,9 @@
+flask
+rasa
+rasa[spacy]
+spacy
+tensorflow
+numpy
+pandas
+scikit-learn
+matplotlib
