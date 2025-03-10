@@ -1,0 +1,196 @@
+version: "3.1"  # Specify the version of Rasa you're using
+stories:
+- story: greet user
+  steps:
+  - intent: greeting
+  - action: utter_greeting
+
+- story: user says good morning
+  steps:
+  - intent: morning
+  - action: utter_morning
+
+- story: user says good afternoon
+  steps:
+  - intent: afternoon
+  - action: utter_afternoon
+
+- story: user says good evening
+  steps:
+  - intent: evening
+  - action: utter_evening
+
+- story: user says good night
+  steps:
+  - intent: night
+  - action: utter_night
+
+- story: user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: user thanks the assistant
+  steps:
+  - intent: thanks
+  - action: utter_thanks
+
+- story: user gives a neutral response
+  steps:
+  - intent: neutral_response
+  - action: utter_neutral_response
+
+- story: user asks about the assistant
+  steps:
+  - intent: about
+  - action: utter_about
+
+- story: user asks about depression
+  steps:
+  - intent: what_is_depression
+  - action: utter_what_is_depression
+
+- story: user asks about skills
+  steps:
+  - intent: skill
+  - action: utter_skill
+
+- story: user asks about creation
+  steps:
+  - intent: creation
+  - action: utter_creation
+
+- story: user asks for help
+  steps:
+  - intent: help
+  - action: utter_help
+
+- story: user expresses sadness
+  steps:
+  - intent: sad
+    entities:
+          - mood: sad
+  - slot_was_set:
+          - mood: sad
+  - action: utter_sad
+  - action: utter_normalize_feelings
+  - intent: not_talking 
+  - action: utter_not_talking
+  - action: utter_cheer_up
+  - action: utter_joke
+  - action: utter_feel_better
+
+- story: user expresses sadness 1 
+  steps:
+  - intent: sad
+    entities:
+          - mood: sad
+  - slot_was_set:
+          - mood: sad
+  - action: utter_sad
+  - action: utter_normalize_feelings
+  - intent: reason
+  - action: action_breathing_exercise
+  - action: utter_goodbye
+
+- story: user expresses stress
+  steps:
+  - intent: stressed
+    entities:
+          - mood: stressed
+  - slot_was_set:
+          - mood: stressed
+  - action: utter_stressed
+  - intent: reason
+  - action: utter_stressed_1
+  - action: utter_stressed_2 
+  - action: utter_feel_better
+  - intent: affirm
+  - action: utter_hope
+
+- story: user expresses stress 1
+  steps:
+  - intent: stressed
+    entities:
+          - mood: stressed
+  - slot_was_set:
+          - mood: stressed
+  - action: utter_stressed
+  - intent: reason
+  - action: utter_stressed_1
+  - action: utter_stressed_2 
+  - action: utter_feel_better
+  - intent: deny
+  - action: action_breathing_exercise
+  - action: utter_hope
+
+- story: user expresses worthless
+  steps:
+  - intent: worthless
+  - action: utter_acknowledge_worthless
+  - action: utter_worthless
+  - intent: worthless reasons
+  - action: utter_sympathy
+  - action: utter_strengths
+  - intent: strengths
+    entities:
+          - user_strengths: kind
+  - slot_was_set:
+          - user_strengths: kind
+  - action: action_generate_strengths_affirmations
+  - action: utter_hope
+
+- story: user expresses anxious
+  steps:
+  - intent: anxious
+  - action: utter_anxious
+  - intent: anxious reasons
+  - action: utter_333_rule
+  - action: utter_feel_better
+  - intent: affirm 
+  - action: utter_happy
+ 
+- story: user expresses anxious 1
+  steps:
+  - intent: anxious
+    entities:
+          - mood: anxious
+  - slot_was_set:
+          - mood: anxious
+  - action: utter_anxious
+  - intent: anxious reasons
+  - action: utter_333_rule
+  - action: utter_feel_better
+  - intent: deny   
+  - action: action_breathing_exercise
+  - action: utter_hope
+
+- story: user expresses sleep 
+  steps:
+  - intent: sleep
+    entities:
+          - mood: sleep
+  - slot_was_set:
+          - mood: sleep
+  - action: utter_sleep
+  - action: utter_sleep_advice
+  - action: action_teach_meditation
+  - action: utter_hope
+
+- story: user expresses happy
+  steps:
+  - intent: happy
+  - action: utter_happy 
+
+- story: user expresses depression 
+  steps:
+  - intent: depressed
+    entities:
+          - mood: depressed
+  - slot_was_set:
+          - mood: depressed
+  - action: utter_depressed
+  - action: utter_depressed_acknowledge
+  - intent: depressed_thoughts
+  - action: utter_adress_depressed_thoughts
+  - action: utter_gratitude_exercise

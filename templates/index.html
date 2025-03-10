@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat with Rasa Bot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        h1 {
+            color: #fff;
+            margin: 10px 0;
+            font-size: 24px;
+        }
+
+        #chatbox {
+            width: 90%;
+            max-width: 800px;
+            height: 70vh; /* Increased height for more chat space */
+            overflow-y: scroll;
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .message {
+            max-width: 70%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            word-wrap: break-word;
+        }
+
+        .user-message {
+            background-color: #007bff;
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+
+        .bot-message {
+            background-color: #333;
+            color: #fff;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+
+        #input-container {
+            width: 90%;
+            max-width: 800px;
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        #user-input {
+            flex: 1;
+            padding: 12px 20px;
+            border: 1px solid #444;
+            border-radius: 25px; /* Rounded edges for input */
+            font-size: 16px;
+            background-color: #333;
+            color: #fff;
+            transition: all 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        #user-input:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Glow effect on focus */
+        }
+
+        #send-btn {
+            padding: 12px 24px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 25px; /* Rounded edges for button */
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        #send-btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05); /* Slight scale-up effect on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Chat with Rasa</h1>
+    <div id="chatbox"></div>
+    <div id="input-container">
+        <input type="text" id="user-input" placeholder="Type your message..." onkeypress="handleKeyPress(event)" />
+        <button id="send-btn" onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        const chatbox = document.getElementById("chatbox");
+        const userInput = document.getElementById("user-input");
+
+        // Function to handle "Enter" key press
+        function handleKeyPress(event) {
+            if (event.key === "Enter") {
+                sendMessage();
+            }
+        }
+
+        // Function to send user message to the Flask server
+        async function sendMessage() {
+            const userMessage = userInput.value;
+            if (userMessage.trim() === "") return;
+
+            // Display user message in chatbox
+            chatbox.innerHTML += `<div class="message user-message">${userMessage}</div>`;
+            userInput.value = ""; // Clear input field
+
+            try {
+                // Send user message to the Flask server
+                const response = await fetch("/webhook", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        message: userMessage,
+                    }),
+                });
+
+                // Check if the response is ok
+                if (!response.ok) {
+                    throw new Error("Failed to get response from the server");
+                }
+
+                // Parse and display the response from the Flask server
+                const data = await response.json();
+                data.forEach((message) => {
+                    if (message.text) {
+                        chatbox.innerHTML += `<div class="message bot-message">${message.text}</div>`;
+                    }
+                });
+            } catch (error) {
+                chatbox.innerHTML += `<div class="message bot-message">Sorry, there was an error: ${error.message}</div>`;
+            }
+
+            // Scroll chatbox to the bottom
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
+
+        // Function to send an automatic welcome message from the bot
+        function sendWelcomeMessage() {
+            const welcomeMessage = "Hello! How can I assist you today?";
+            chatbox.innerHTML += `<div class="message bot-message">${welcomeMessage}</div>`;
+            chatbox.scrollTop = chatbox.scrollHeight; // Scroll to the bottom
+        }
+
+        // Send welcome message on page load
+        window.onload = sendWelcomeMessage;
+    </script>
+</body>
+</html>

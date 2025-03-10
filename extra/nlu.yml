@@ -1,0 +1,277 @@
+version: "3.1"  # Specify the version of Rasa you're using
+nlu:
+- intent: greeting
+  examples: |
+    - Hi
+    - Hey
+    - Is anyone there?
+    - Hi there
+    - Hello
+    - Hey there
+    - Howdy
+    - Hola
+    - Bonjour
+    - Hay
+    - Sasa
+
+- intent: morning
+  examples: |
+    - Good morning
+    - morning 
+
+- intent: afternoon
+  examples: |
+    - Good afternoon
+    - afternoon
+
+- intent: evening
+  examples: |
+    - Good evening
+    - evening 
+
+- intent: night
+  examples: |
+    - Good night
+    - night 
+
+- intent: affirm
+  examples: |
+    - Yes
+    - Absolutely
+    - Definitely
+    - Sure
+    - Of course
+    - I agree
+    - That's right
+    - Okay
+    - Sounds good
+    - yeah
+    - yup
+    - ya 
+  
+- intent: deny
+  examples: |
+    - No
+    - Absolutely not
+    - I disagree
+    - Not really
+    - I don't think so
+    - No way
+    - Nope
+    - Not interested
+
+- intent: goodbye
+  examples: |
+    - Bye
+    - See you later
+    - Goodbye
+    - Au revoir
+    - Sayonara
+    - ok bye
+    - Bye then
+    - Fare thee well
+
+- intent: thanks
+  examples: |
+    - Thanks
+    - Thank you
+    - That's helpful
+    - Thanks for the help
+    - Thank you very much
+
+- intent: neutral_response
+  examples: |
+    - nothing much
+    - nothing really
+    - nothing
+
+- intent: about
+  examples: |
+    - Who are you?
+    - What are you?
+    - Who you are?
+    - Tell me more about yourself.
+    - What is your name?
+    - What should I call you?
+    - What's your name?
+    - Tell me about yourself
+
+- intent: what_is_depression
+  examples: |
+    - what is depression?
+    - Can you explain depression to me?
+    - Tell me about depression.
+    - I want to know about depression 
+
+- intent: skill
+  examples: |
+    - What can you do?
+
+- intent: creation
+  examples: |
+    - Who created you?
+    - How were you made?
+    - How were you created?
+
+- intent: help
+  examples: |
+    - Could you help me?
+    - give me a hand please
+    - Can you help?
+    - What can you do for me?
+    - I need support
+    - I need help
+    - Support me please
+    - I really need help 
+
+- intent: lonely
+  examples: |
+    - I am feeling lonely
+    - I am so lonely
+    - I feel down
+    - I feel sad
+    - I am sad
+    - I feel so lonely
+    - I feel empty
+    - I don't have anyone
+  
+- intent: sad
+  examples: |
+    - I am feeling so [sad](mood)
+    - I'm really [down](mood) today.
+    - I am feeling [blue](mood).
+    - Everything seems so [awful](mood).
+    - I don't feel good at all, I'm [sad](mood).
+    - [sad](mood). 
+
+- intent: stressed
+  examples: |
+    - I am so [stressed](mood) out
+    - I am so [stressed](mood)
+    - I feel [stressed](mood)
+    - I still feel [stressed](mood)
+    - [stress](mood)
+    - i am feeling [stressed](mood) lately
+
+- intent: reason
+  examples: |
+    - I failed my exam, and I feel terrible.
+    - I didnt score well in my math test.
+    - I'm stressed because of upcoming exams.
+    - I studied so hard but still couldnt pass.
+    - I failed to meet my expectations in the finals.
+    - My results were disappointing, and I feel so low.
+    - I am worried I wont do well in the next exam.
+    - I cant stop thinking about my poor performance in chemistry.
+    - Exams are overwhelming me, and I feel stressed.
+    - I feel like Ive let myself down because of my exam failure.
+    - My workload is just too much, and I cant keep up.
+    - I am behind on my assignments, and its stressing me out.
+    - Im struggling with balancing work and studies.
+    - My boss is putting too much pressure on me.
+    - I have a lot of responsibilities at home, and its overwhelming.
+    - I am dealing with family problems, and its causing me stress.
+    - I am  worried about my future career and finding a job.
+    - My health has been bad lately, and Im stressed about it.
+    - I cant focus because of everything happening in my life.
+    - I am stressed about not being able to meet other peoples expectations.
+    - My mom died
+    - My brother died
+    - My dad passed away
+    - My sister passed away
+    - Someone in my family died
+    - My friend passed away
+
+- intent: not_talking
+  examples: |
+    - I don't want to talk about it.
+    - No just stay away.
+    - I can't bring myself to open up.
+    - Just shut up
+
+- intent: worthless
+  examples: |
+    - I feel so worthless.
+    - No one likes me.
+    - I can't do anything.
+    - I am so useless
+    - Nothing makes sense anymore
+
+- intent: worthless reasons
+  examples: |
+    - no one likes me!
+    - i am good for nothing!
+    - i wish i was better than them
+    - i hate myself!
+    - i wish i could've been a winner
+    - i think i am ugly
+
+- intent: strengths
+  examples: |
+    - i am [kind](user_strengths)
+    - i am [creative](user_strengths)
+    - i am [resilent](user_strengths)
+    - i am [caring](user_strengths)
+    - i am [open minded](user_strengths)
+    - i am [humorous](user_strengths)
+    - i am [patient](user_strengths)
+    - i am [organized](user_strengths)
+    - i am [decisive](user_strengths)
+    - i am [curious](user_strengths)
+
+- intent: anxious
+  examples: |
+    - I feel so [anxious](mood).
+    - I'm so [anxious](mood) because of 
+    - i am feeling [anxious](mood) lately.
+    - [anxious](mood)
+
+- intent: anxious reasons
+  examples: |
+    - I'm anxious because I have a big presentation tomorrow. 
+    - I'm feeling anxious about my upcoming exams. 
+    - I'm worried about losing my job, that's why I'm anxious. 
+    - I've been arguing with my partner lately and it's making me anxious. 
+    - I'm anxious because I feel like I'm not good enough. 
+    - I'm anxious about the future. 
+    - I'm feeling overwhelmed with work and that's causing me anxiety. 
+    - I'm anxious because I haven't been sleeping well. 
+    - I think my anxiety is coming from all the stress I'm under right now.
+
+- intent: sleep
+  examples: |
+    - I have [insomnia](mood)
+    - I am suffering from [insomnia](mood)
+    - I can't [sleep](mood).
+    - I haven't [slept](mood) for the last days.
+    - I can't seem to go to [sleep](mood).
+    - I haven't had proper [sleep](mood) for the past few days.
+
+- intent: happy
+  examples: |
+    - I feel great today.
+    - I am happy.
+    - I feel happy.
+    - I'm good.
+    - cheerful
+    - I'm fine
+    - I feel ok
+
+- intent: depressed
+  examples: |
+    - I am so [depressed](mood)
+    - I think I'm [depressed](mood).
+    - I have [depression](mood)
+
+- intent: depressed_thoughts
+  examples: |
+    - I feel so empty all the time.
+    - Nothing seems to matter anymore..
+    - I am such a failure
+    - I am always tired, no matter how much I rest.
+    - I dont enjoy the things I used to love anymore.
+    - Everything is my fault.
+    - I cant sleep, no matter how tired I feel.
+
+  
+

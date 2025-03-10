@@ -1,0 +1,601 @@
+version: "3.1"  # Specify the version of Rasa you're using
+nlu:
+- intent: greeting
+  examples: |
+    - Hi
+    - Hey
+    - Is anyone there?
+    - Hi there
+    - Hello
+    - Hey there
+    - Howdy
+    - Hola
+    - Bonjour
+    - Hay
+    - Sasa
+
+- intent: morning
+  examples: |
+    - Good morning
+    - morning 
+
+- intent: afternoon
+  examples: |
+    - Good afternoon
+    - afternoon
+
+- intent: evening
+  examples: |
+    - Good evening
+    - evening 
+
+- intent: night
+  examples: |
+    - Good night
+    - night 
+
+- intent: affirm
+  examples: |
+    - Yes
+    - Absolutely
+    - Definitely
+    - Sure
+    - Of course
+    - I agree
+    - That's right
+    - Okay
+    - Sounds good
+    - yeah
+    - yup
+    - ya 
+  
+- intent: deny
+  examples: |
+    - No
+    - Absolutely not
+    - I disagree
+    - Not really
+    - I don't think so
+    - No way
+    - Nope
+    - Not interested
+
+- intent: goodbye
+  examples: |
+    - Bye
+    - See you later
+    - Goodbye
+    - Au revoir
+    - Sayonara
+    - ok bye
+    - Bye then
+    - Fare thee well
+
+- intent: thanks
+  examples: |
+    - Thanks!
+    - Thank you!
+    - That's helpful
+    - Thanks for the help
+    - Thank you very much
+
+- intent: neutral_response
+  examples: |
+    - nothing much
+    - nothing really
+    - nothing
+
+- intent: about
+  examples: |
+    - Who are you?
+    - What are you?
+    - Who you are?
+    - Tell me more about yourself.
+    - What is your name?
+    - What should I call you?
+    - What's your name?
+    - Tell me about yourself
+
+- intent: what_is_depression
+  examples: |
+    - what is depression?
+    - Can you explain depression to me?
+    - Tell me about depression.
+    - I want to know about depression 
+
+- intent: skill
+  examples: |
+    - What can you do?
+
+- intent: creation
+  examples: |
+    - Who created you?
+    - How were you made?
+    - How were you created?
+
+- intent: help
+  examples: |
+    - Could you help me?
+    - give me a hand please
+    - Can you help?
+    - What can you do for me?
+    - I need support
+    - I need help
+    - Support me please
+    - I really need help 
+
+- intent: lonely
+  examples: |
+    - I am feeling lonely
+    - I am so lonely
+    - I feel down
+    - I feel sad
+    - I am sad
+    - I feel so lonely
+    - I feel empty
+    - I don't have anyone
+  
+- intent: sad
+  examples: |
+    - I am feeling so [sad](mood)
+    - I'm really [down](mood) today.
+    - I am feeling [blue](mood).
+    - Everything seems so [awful](mood).
+    - I don't feel good at all, I'm [sad](mood).
+    - [sad](mood).
+    - I feel [down](mood)
+    - I feel [sad](mood)
+    - I am [sad](mood)
+    - I'm [sad](mood)
+
+- intent: stressed
+  examples: |
+    - I am so [stressed](mood) out
+    - I am so [stressed](mood)
+    - I feel [stressed](mood)
+    - I still feel [stressed](mood)
+    - [stress](mood)
+    - i am feeling [stressed](mood) lately
+
+- intent: reason
+  examples: |
+    - I failed my exam
+    - I didnt score well in my math test.
+    - I'm stressed because of upcoming exams.
+    - I studied so hard but still couldnt pass.
+    - I failed to meet my expectations. 
+    - My results were disappointing, and I feel so low.
+    - I am worried I wont do well in the next exam.
+    - I cant stop thinking about my poor performance in chemistry.
+    - Exams are overwhelming me, and I feel stressed.
+    - I feel like Ive let myself down because of my exam failure.
+    - My workload is just too much, and I cant keep up.
+    - I am behind on my assignments, and its stressing me out.
+    - Im struggling with balancing work and studies.
+    - My boss is putting too much pressure on me.
+    - I have a lot of responsibilities at home, and its overwhelming.
+    - family problems
+    - I am  worried about my future career and finding a job.
+    - My health has been bad lately, and Im stressed about it.
+    - No focus
+    - I am stressed about not being able to meet other peoples expectations.
+
+- intent: not_talking
+  examples: |
+    - I don't want to talk about it.
+    - No just stay away.
+    - I can't bring myself to open up.
+    - Just shut up
+
+- intent: worthless
+  examples: |
+    - I feel so worthless.
+    - No one likes me.
+    - I can't do anything.
+    - I am so useless
+    - Nothing makes sense anymore
+    - useless
+    - worthlesa
+
+- intent: worthless reasons
+  examples: |
+    - no one likes me!
+    - i am good for nothing!
+    - i wish i was better than them
+    - i hate myself!
+    - i wish i could've been a winner
+    - i think i am ugly
+
+- intent: strengths
+  examples: |
+    - i am [kind](user_strengths)
+    - i am [creative](user_strengths)
+    - i am [resilent](user_strengths)
+    - i am [caring](user_strengths)
+    - i am [open minded](user_strengths)
+    - i am [humorous](user_strengths)
+    - i am [patient](user_strengths)
+    - i am [organized](user_strengths)
+    - i am [decisive](user_strengths)
+    - i am [curious](user_strengths)
+
+- intent: anxious
+  examples: |
+    - I feel so [anxious](mood).
+    - I'm so [anxious](mood) because of 
+    - i am feeling [anxious](mood) lately.
+    - [anxious](mood)
+    - [nervous](mood)
+
+- intent: anxious reasons
+  examples: |
+    - have a big presentation tomorrow. 
+    - my upcoming exams. 
+    - I'm worried about losing my job, that's why I'm anxious. 
+    - arguing with my partner lately 
+    - I feel like I'm not good enough. 
+    - I'm anxious about the future. 
+    - I'm feeling overwhelmed with work and that's causing me anxiety. 
+    - I'm anxious because I haven't been sleeping well. 
+    - I think my anxiety is coming from all the stress I'm under right now.
+
+- intent: sleep
+  examples: |
+    - I have [insomnia](mood)
+    - I am suffering from [insomnia](mood)
+    - I can't [sleep](mood).
+    - I haven't [slept](mood) for the last days.
+    - I can't seem to go to [sleep](mood).
+    - I haven't had proper [sleep](mood) for the past few days.
+
+- intent: happy
+  examples: |
+    - I feel great today.
+    - I am happy.
+    - I feel happy.
+    - I'm good.
+    - cheerful
+    - I'm fine
+    - I feel ok
+
+- intent: depressed
+  examples: |
+    - I am so [depressed](mood)
+    - I think I'm [depressed](mood).
+    - I have [depression](mood)
+    - i feel [depressed](mood)
+    - [depressed](mood)
+
+- intent: depressed_thoughts
+  examples: |
+    - I feel so empty all the time.
+    - Nothing seems to matter anymore..
+    - I am such a failure
+    - I am always tired, no matter how much I rest.
+    - I dont enjoy the things I used to love anymore.
+    - Everything is my fault.
+    - I cant sleep, no matter how tired I feel.
+
+- intent: gratitude 
+  examples: |
+    - Watching the birds chirp 
+    - childs laughter 
+    - hilarious joke 
+    - beautiful sunset 
+    - compliment
+    - My husband
+    - My wife
+    - My dad
+    - My colleague
+    - My mom
+    - My friend 
+    - My best friend 
+    - My sibling 
+    - My sister
+    - My brother 
+    - My pet 
+    - I appreciated my ability to stay positive even when things got stressful.
+    - I was proud of myself for completing a challenging task at work.
+    - I appreciated my kindness in helping a stranger today.
+    - Im grateful for my creativity in coming up with a solution to a problem.
+    - I appreciated that I made time for self-care by going for a walk.
+
+- intent: casual
+  examples: |
+    - Oh I see.
+    - ok
+    - okay
+    - nice
+    - Whatever
+    - K
+    - Fine
+    - yeah
+    - yes
+    - no
+    - not really
+  
+- intent: death
+  examples: |
+    - My mom died
+    - My brother died
+    - My dad passed away
+    - My sister passed away
+    - Someone in my family died
+    - My friend passed away
+
+- intent: suicide
+  examples: |
+    - I want to kill myself
+    - I've thought about killing myself.
+    - I want to die
+    - I am going to kill myself
+    - I am going to commit suicide
+
+- intent: learn_mental_health
+  examples: |
+    - I want to learn about mental health.
+    - I want to learn more about mental health.
+    - I'm interested in learning about mental health.
+
+- intent: mental_health_fact
+  examples: |
+    - Tell me a fact about mental health
+    - Tell me another fact about mental health
+
+- intent: fact-1
+  examples: |
+    - What is mental health?
+    - Define Mental Health
+
+- intent: fact-2
+  examples: |
+    - Why is mental health important?
+    - What is the importance of mental health?
+
+- intent: fact-3
+  examples: |
+    - What is Depression?
+    - Define Depression
+
+- intent: fact-5
+  examples: |
+    - How do I know if I have Depression?
+    - Am I depressed?
+    - Am I suffering from depression?
+    - Am I mentally ill?
+    
+- intent: fact-6
+  examples: |
+    - What is a therapist?
+    - What does a therapist do?
+
+- intent: fact-7
+  examples: |
+    - What is therapy?
+    - Do I need therapy?
+    - Who is therapy for?
+
+- intent: fact-8
+  examples: |
+    - What does it mean to have a mental illness?
+
+- intent: fact-9
+  examples: |
+    - Who does mental illness affect?
+
+- intent: fact-10
+  examples: |
+    - What causes mental illness?
+
+- intent: fact-11
+  examples: |
+    - What are some of the warning signs of mental illness?
+
+- intent: fact-12
+  examples: |
+    - Can people with mental illness recover?
+
+- intent: fact-13
+  examples: |
+    - What should I do if I know someone who appears to have the symptoms of a mental disorder?
+
+- intent: fact-14
+  examples: |
+    - How can I find a mental health professional for myself or my child?
+
+- intent: fact-15
+  examples: |
+    - What treatment options are available?
+
+- intent: fact-16
+  examples: |
+    - If I become involved in treatment, what do I need to know?
+
+- intent: fact-17
+  examples: |
+    - What is the difference between mental health professionals?
+
+- intent: fact-18
+  examples: |
+    - How can I find a mental health professional right for my child or myself?
+
+- intent: fact-19
+  examples: |
+    - Where else can I get help?
+
+- intent: fact-20
+  examples: |
+    - What should I know before starting a new medication?
+
+- intent: fact-21
+  examples: |
+    - Where can I go to find therapy?
+
+- intent: fact-22
+  examples: |
+    - Where can I learn about types of mental health treatment?
+
+- intent: fact-23
+  examples: |
+    - What are the different types of mental health professionals?
+
+- intent: fact-24
+  examples: |
+    - Where can I go to find a support group?
+
+- intent: fact-25
+  examples: |
+    - Can you prevent mental health problems?
+
+- intent: fact-26
+  examples: |
+    - Are there cures for mental health problems?
+    - Is there any cure for mental health problems?
+
+- intent: fact-27
+  examples: |
+    - What causes mental health problems?
+
+- intent: fact-28
+  examples: |
+    - What do I do if I'm worried about my mental health?
+
+- intent: fact-29
+  examples: |
+    - How do I know if I'm unwell?
+
+- intent: fact-30
+  examples: |
+    - How can I maintain social connections? What if I feel lonely?
+
+- intent: fact-31
+  examples: |
+    - What's the difference between anxiety and stress?
+
+- intent: fact-32
+  examples: |
+    - What's the difference between sadness and depression?
+    - Difference between sadness and 
+    
+- intent: i feel i have let my parents down
+  examples: |
+    - i feel i have let my parents down
+
+- intent: what are the types of depression
+  examples: |
+    - what are the types of depression?
+    - what are the different types of depression?
+    - what kinnds of depression are there?
+    - what are the different kinds of depression?
+
+- intent: i want to kill myself
+  examples: |
+    - i want to kill myself
+
+
+- intent: i am afraid i will fail again
+  examples: |
+    - i am afraid i will fail again
+
+- intent: what are the causes of depression
+  examples: |
+    - what are the causes of depression?
+    - what causes depression?
+    - why are people depressed?
+    - what causes depression in people?
+
+- intent: what are the top causes of depression
+  examples: |
+    - what are the top causes of depression?
+    - what are the main causes of depression?
+    - what are the main reasons for depression?
+    - what reasons cause depression?
+    - why are people depressed?
+    - what are top causes depression?
+
+- intent: which age group has the highest rate of depression
+  examples: |
+    - which age group has the highest rate of depression?
+    - which age has highest depression?
+    - which age group has highest depression rate?
+
+- intent: which country has the highest rate of depression
+  examples: |
+    - which country has the highest rate of depression?
+
+- intent: which country has the lowest rate of depression
+  examples: |
+    - which country has the lowest rate of depression?
+
+- intent: i will never succeed in life
+  examples: |
+    - i will never succeed in life
+
+- intent: i am a victim of bullying
+  examples: |
+    - i am a victim of bullying
+    - i am being bullied
+    - i am bullied
+    - people bully me
+    - i get bullied
+    - i am being teased
+    - i am being picked on
+    - i am being harassed
+    - i am harassed
+
+- intent: i am afraid to file a case against bullying
+  examples: |
+    - i am afraid to file a case against bullying
+
+- intent: i wish to quit
+  examples: |
+    - i wish to quit
+    - i want to quit
+    - i am thinking of quitting
+    - i am thinking of giving up
+    - i am thinking of ending my life
+    - i am thinking of harming myself
+    - i am thinking of killing myself
+
+- intent: i want to leave the country and run away
+  examples: |
+    - i want to leave the country and run away
+    - i want to escape from the country
+    - i want to leave the country
+    - i want to run away from the country
+
+- intent: i let everyone down
+  examples: |
+    - i let everyone down
+    - i feel like i let everyone down
+    - i feel like i failed everyone
+    - i feel like i am a failure
+    - i feel like i am worthless
+    - i feel like i am useless
+    - i feel like i am a burden
+    - i feel like i am a disappointment
+    - i feel like i am a failure in life
+    - i feel like i am a failure in school
+    - i feel like i am a failure in my career
+    - i feel like i am a failure in my relationships
+    - i feel like a failure
+    - i failed everyone
+
+- intent: i can't do this anymore
+  examples: |
+    - i can't do this anymore
+    - i am tired of this
+    - i am tired of everything
+    - i am tired of life
+    - i am tired of school
+    - i am tired of my job
+    - i am tired of my relationships
+    - i am tired of everything in life
+
+- intent: my time has come
+  examples: |
+    - my time has come
+
+
+
+

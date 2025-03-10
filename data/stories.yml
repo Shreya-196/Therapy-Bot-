@@ -1,0 +1,503 @@
+version: "3.1"  # Specify the version of Rasa you're using
+stories:
+- story: greet user
+  steps:
+  - intent: greeting
+  - action: utter_greeting
+
+- story: user says good morning
+  steps:
+  - intent: morning
+  - action: utter_morning
+
+- story: user says good afternoon
+  steps:
+  - intent: afternoon
+  - action: utter_afternoon
+
+- story: user says good evening
+  steps:
+  - intent: evening
+  - action: utter_evening
+
+- story: user says good night
+  steps:
+  - intent: night
+  - action: utter_night
+
+- story: user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: user thanks the assistant
+  steps:
+  - intent: thanks
+  - action: utter_thanks
+
+- story: user gives a neutral response
+  steps:
+  - intent: neutral_response
+  - action: utter_neutral_response
+
+- story: user asks about the assistant
+  steps:
+  - intent: about
+  - action: utter_about
+
+- story: user asks about depression
+  steps:
+  - intent: what_is_depression
+  - action: utter_what_is_depression
+
+- story: user asks about skills
+  steps:
+  - intent: skill
+  - action: utter_skill
+
+- story: user asks about creation
+  steps:
+  - intent: creation
+  - action: utter_creation
+
+- story: user asks for help
+  steps:
+  - intent: help
+  - action: utter_help
+
+- story: user expresses sadness
+  steps:
+  - intent: sad
+    entities:
+          - mood: sad
+  - slot_was_set:
+          - mood: sad
+  - action: utter_normalize_feelings
+  - action: utter_sad
+  - intent: not_talking 
+  - action: utter_not_talking
+  - action: utter_cheer_up
+  - action: utter_joke
+  - action: utter_feel_better
+  - intent: affirm
+  - action: utter_done
+
+- story: user expresses sadness 1
+  steps:
+  - intent: sad
+    entities:
+          - mood: sad
+  - slot_was_set:
+          - mood: sad
+  - action: utter_normalize_feelings
+  - action: utter_sad
+  - intent: not_talking 
+  - action: utter_not_talking
+  - action: utter_cheer_up
+  - action: utter_joke
+  - action: utter_feel_better
+  - intent: deny
+  - action: action_breathing_exercise
+  - action: utter_hope
+
+- story: user expresses sadness 2 
+  steps:
+  - intent: sad
+    entities:
+          - mood: sad
+  - slot_was_set: 
+          - mood: sad
+  - action: utter_normalize_feelings
+  - action: utter_sad
+  - intent: reason
+  - action: utter_cbt_reframe
+  - action: action_breathing_exercise
+  - action: utter_hope
+
+- story: user expresses stress
+  steps:
+  - intent: stressed
+    entities:
+          - mood: stressed
+  - slot_was_set:
+          - mood: stressed
+  - action: utter_stressed
+  - intent: reason
+  - action: utter_stressed_1
+  - action: utter_stressed_2 
+  - action: utter_feel_better
+  - intent: affirm
+  - action: utter_done
+
+- story: user expresses stress 1
+  steps:
+  - intent: stressed
+    entities:
+          - mood: stressed
+  - slot_was_set:
+          - mood: stressed
+  - action: utter_stressed
+  - intent: reason
+  - action: utter_stressed_1
+  - action: utter_stressed_2 
+  - action: utter_feel_better
+  - intent: deny
+  - action: action_breathing_exercise
+  - action: utter_hope
+
+- story: user expresses worthless
+  steps:
+  - intent: worthless
+  - action: utter_acknowledge_worthless
+  - action: utter_worthless
+  - intent: worthless reasons
+  - action: utter_sympathy
+  - action: utter_strengths
+  - intent: strengths
+    entities:
+          - user_strengths: kind
+  - slot_was_set:
+          - user_strengths: kind
+  - action: action_generate_strengths_affirmations
+  - action: utter_hope
+
+- story: user expresses anxious
+  steps:
+  - intent: anxious
+  - action: utter_anxious
+  - intent: anxious reasons
+  - action: utter_333_rule
+  - action: utter_feel_better
+  - intent: affirm 
+  - action: utter_done
+ 
+- story: user expresses anxious 1
+  steps:
+  - intent: anxious
+    entities:
+          - mood: anxious
+  - slot_was_set:
+          - mood: anxious
+  - action: utter_anxious
+  - intent: anxious reasons
+  - action: utter_333_rule
+  - action: utter_feel_better
+  - intent: deny   
+  - action: action_breathing_exercise
+  - action: utter_hope
+  - action: utter_done 
+
+- story: user expresses sleep 
+  steps:
+  - intent: sleep
+    entities:
+          - mood: sleep
+  - slot_was_set:
+          - mood: sleep
+  - action: utter_sleep
+  - action: utter_sleep_advice
+  - action: action_teach_meditation
+  - action: utter_hope
+
+- story: user expresses happy
+  steps:
+  - intent: happy
+  - action: utter_happy 
+
+- story: user expresses depression 
+  steps:
+  - intent: depressed
+    entities:
+          - mood: depressed
+  - slot_was_set:
+          - mood: depressed
+  - action: utter_depressed
+  - action: utter_depressed_acknowledge
+  - intent: depressed_thoughts
+  - action: utter_adress_depressed_thoughts
+  - action: utter_gratitude_exercise
+  - intent: gratitude 
+  - action: utter_encouragement
+  - action: action_teach_meditation
+  - action: utter_feel_better
+  - intent: affirm
+  - action: utter_done
+
+- story: user expresses depression 
+  steps:
+  - intent: depressed
+    entities:
+          - mood: depressed
+  - slot_was_set:
+          - mood: depressed
+  - action: utter_depressed
+  - action: utter_depressed_acknowledge
+  - intent: depressed_thoughts
+  - action: utter_adress_depressed_thoughts
+  - action: utter_gratitude_exercise
+  - intent: gratitude 
+  - action: utter_encouragement
+  - action: action_teach_meditation
+  - action: utter_feel_better
+  - intent: deny
+  - action: utter_positive_affirmations
+
+- story: user mentions suicide
+  steps:
+  - intent: suicide
+  - action: utter_suicide
+
+- story: user wants to learn about mental health
+  steps:
+  - intent: learn_mental_health
+  - action: utter_learn_mental_health
+
+- story: user asks for a mental health fact
+  steps:
+  - intent: mental_health_fact
+  - action: utter_mental_health_fact
+
+- story: user asks what mental health is
+  steps:
+  - intent: fact-1
+  - action: utter_fact_1
+
+- story: user asks why mental health is important
+  steps:
+  - intent: fact-2
+  - action: utter_fact_2
+
+- story: user asks what depression is
+  steps:
+  - intent: fact-3
+  - action: utter_fact_3
+
+- story: user asks how to know if they have depression
+  steps:
+  - intent: fact-5
+  - action: utter_fact_5
+
+- story: user asks what a therapist is
+  steps:
+  - intent: fact-6
+  - action: utter_fact_6
+
+- story: user asks about therapy
+  steps:
+  - intent: fact-7
+  - action: utter_fact_7
+
+- story: user asks what it means to have a mental illness
+  steps:
+  - intent: fact-8
+  - action: utter_fact_8
+
+- story: user asks who mental illness affects
+  steps:
+  - intent: fact-9
+  - action: utter_fact_9
+
+- story: user asks what causes mental illness
+  steps:
+  - intent: fact-10
+  - action: utter_fact_10
+
+- story: user asks about warning signs of mental illness
+  steps:
+  - intent: fact-11
+  - action: utter_fact_11
+
+- story: user asks if people with mental illness can recover
+  steps:
+  - intent: fact-12
+  - action: utter_fact_12
+
+- story: user asks what to do if someone has symptoms of a mental disorder
+  steps:
+  - intent: fact-13
+  - action: utter_fact_13
+
+- story: user asks how to find a mental health professional
+  steps:
+  - intent: fact-14
+  - action: utter_fact_14
+
+- story: user asks about treatment options for mental illness
+  steps:
+  - intent: fact-15
+  - action: utter_fact_15
+
+- story: user asks what to know about treatment involvement
+  steps:
+  - intent: fact-16
+  - action: utter_fact_16
+
+- story: user asks about differences between mental health professionals
+  steps:
+  - intent: fact-17
+  - action: utter_fact_17
+
+- story: user asks how to find a mental health professional
+  steps:
+  - intent: fact-18
+  - action: utter_fact_18
+
+- story: user asks where else to get help
+  steps:
+  - intent: fact-19
+  - action: utter_fact_19
+
+- story: user asks what to know before starting a new medication
+  steps:
+  - intent: fact-20
+  - action: utter_fact_20
+
+- story: user asks where to find therapy
+  steps:
+  - intent: fact-21
+  - action: utter_fact_21
+
+- story: user asks about types of mental health treatment
+  steps:
+  - intent: fact-22
+  - action: utter_fact_22
+
+- story: user asks about different types of mental health professionals
+  steps:
+  - intent: fact-23
+  - action: utter_fact_23
+
+- story: user asks where to find a support group
+  steps:
+  - intent: fact-24
+  - action: utter_fact_24
+
+- story: user asks if mental health problems can be prevented
+  steps:
+  - intent: fact-25
+  - action: utter_fact_25
+
+- story: user asks about cures for mental health problems
+  steps:
+  - intent: fact-26
+  - action: utter_fact_26
+
+- story: user asks about causes of mental health problems
+  steps:
+  - intent: fact-27
+  - action: utter_fact_27
+
+- story: user asks what to do if worried about mental health
+  steps:
+  - intent: fact-28
+  - action: utter_fact_28
+
+- story: user asks how to know if unwell
+  steps:
+  - intent: fact-29
+  - action: utter_fact_29
+
+- story: user asks how to maintain social connections
+  steps:
+  - intent: fact-30
+  - action: utter_fact_30
+
+- story: user asks about the difference between anxiety and stress
+  steps:
+  - intent: fact-31
+  - action: utter_fact_31
+
+- story: user asks about the difference between sadness and depression
+  steps:
+  - intent : fact-32
+  - action: utter_fact_32
+
+- story: user feels they have let their parents down
+  steps:
+  - intent: i feel i have let my parents down
+  - action: utter_i_feel_i_have_let_my_parents_down
+
+- story: user asks about types of depression
+  steps:
+  - intent: what are the types of depression
+  - action: utter_what_are_the_types_of_depression
+
+- story: user wants to kill themselves
+  steps:
+  - intent: i want to kill myself
+  - action: utter_i_want_to_kill_myself
+
+- story: user is afraid of failing again
+  steps:
+  - intent: i am afraid i will fail again
+  - action: utter_i_am_afraid_i_will_fail_again
+  
+- story: user asks about the causes of depression
+  steps:
+  - intent: what are the causes of depression
+  - action: utter_what_are_the_causes_of_depression
+
+- story: user asks about the top causes of depression
+  steps:
+  - intent: what are the top causes of depression
+  - action: utter_what_are_the_top_causes_of_depression
+
+- story: user asks which age group has the highest rate of depression
+  steps:
+  - intent: which age group has the highest rate of depression
+  - action: utter_which_age_group_has_the_highest_rate_of_depression
+
+- story: user asks which country has the highest rate of depression
+  steps:
+  - intent: which country has the highest rate of depression
+  - action: utter_which_country_has_the_highest_rate_of_depression
+
+- story: user asks which country has the lowest rate of depression
+  steps:
+  - intent: which country has the lowest rate of depression
+  - action: utter_which_country_has_the_lowest_rate_of_depression
+
+- story: user feels they will never succeed in life
+  steps:
+  - intent: i will never succeed in life
+  - action: utter_i_will_never_succeed_in_life
+
+- story: user is a victim of bullying
+  steps:
+  - intent: i am a victim of bullying
+  - action: utter_i_am_a_victim_of_bullying
+
+- story: user is afraid to file a case against bullying
+  steps:
+  - intent: i am afraid to file a case against bullying
+  - action: utter_i_am_afraid_to_file_a_case_against_bullying
+  
+- story: user wishes to quit
+  steps:
+  - intent: i wish to quit
+  - action: utter_i_wish_to_quit
+
+- story: user wants to leave the country and run away
+  steps:
+  - intent: i want to leave the country and run away
+  - action: utter_i_want_to_leave_the_country_and_run_away
+
+- story: user feels they let everyone down
+  steps:
+  - intent: i let everyone down
+  - action: utter_i_let_everyone_down
+
+- story: user can't do this anymore
+  steps:
+  - intent: i can't do this anymore
+  - action: utter_i_cant_do_this_anymore
+
+- story: user feels their time has come
+  steps:
+  - intent: my time has come
+  - action: utter_my_time_has_come
+  
+- story: user talks about death
+  steps:
+  - intent: death
+  - action: utter_death

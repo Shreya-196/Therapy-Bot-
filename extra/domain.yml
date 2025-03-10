@@ -1,0 +1,229 @@
+version: "3.1"  # Specify the version of Rasa you're using
+intents:
+  - greeting
+  - morning
+  - afternoon
+  - evening
+  - night
+  - goodbye
+  - thanks
+  - neutral_response
+  - about
+  - what_is_depression
+  - skill
+  - creation
+  - help
+  - lonely
+  - sad
+  - stressed
+  - reason
+  - not_talking
+  - affirm
+  - deny 
+  - worthless
+  - strengths
+  - worthless reasons
+  - anxious
+  - anxious reasons
+  - sleep
+  - happy 
+  - depressed
+  - depressed_thoughts
+
+entities: 
+  - mood 
+  - user_strengths
+
+slots:
+  mood:
+    type: text
+    influence_conversation: false
+    mappings: 
+    - type: from_entity
+      entity: mood 
+  user_strengths:
+    type: text
+    influence_conversation: false
+    mappings: 
+    - type: from_entity
+      entity: user_strengths
+    
+
+
+responses:
+  utter_greeting:
+    - text: "Hello there. Tell me how are you feeling today?"
+    - text: "Hi there. What brings you here today?"
+    - text: "Hi there. How are you feeling today?"
+    - text: "Great to see you. How do you feel currently?"
+    - text: "Hello there. Glad to see you're back. What's going on in your world right now?"
+
+  utter_morning:
+    - text: "Good morning. I hope you had a good night's sleep. How are you feeling today?"
+
+  utter_afternoon:
+    - text: "Good afternoon. How is your day going?"
+
+  utter_evening:
+    - text: "Good evening. How has your day been?"
+
+  utter_night:
+    - text: "Good night. Get some proper sleep."
+    - text: "Good night. Sweet dreams."
+
+  utter_goodbye:
+    - text: "See you later."
+    - text: "Have a nice day."
+    - text: "Bye! Come back again."
+    - text: "I'll see you soon."
+
+  utter_thanks:
+    - text: "Happy to help!"
+    - text: "Any time!"
+    - text: "My pleasure."
+    - text: "You're most welcome!"
+
+  utter_neutral_response:
+    - text: "Oh I see. Do you want to talk about something?"
+
+  utter_about:
+    - text: "I'm Jamila, your Personal Therapeutic AI Assistant. How are you feeling today?"
+    - text: "I'm Pandora, a Therapeutic AI Assistant designed to assist you. Tell me about yourself."
+    - text: "I'm Pandora. I am a conversational agent designed to mimic a therapist. So how are you feeling today?"
+    - text: "You can call me Pandora."
+    - text: "I'm Pandora!"
+    - text: "Call me Pandora."
+
+  utter_what_is_depression:
+    - text: "Depression is a common and serious medical illness that negatively affects how you feel, the way you think, and how you act. Fortunately, it is also treatable. Depression causes feelings of sadness and/or a loss of interest in activities you once enjoyed. It can lead to a variety of emotional and physical problems and can decrease your ability to function at work and at home."
+    - text: "Depression is a mood disorder that causes a persistent feeling of sadness and loss of interest. Also called major depressive disorder or clinical depression, it affects how you feel, think, and behave and can lead to a variety of emotional and physical problems."
+
+  utter_skill:
+    - text: "I can provide general advice regarding anxiety and depression, answer questions related to mental health, and make daily conversations. Do not consider me as a substitute for an actual mental healthcare worker. Please seek help if you don't feel satisfied with me."
+
+  utter_creation:
+    - text: "I was created by >."
+    - text: "I was trained on a text dataset using Deep Learning & Natural Language Processing techniques."
+    - text: "The real question is: Who created you?"
+
+  utter_help:
+    - text: "Sure. Tell me how can I assist you."
+    - text: "Tell me your problem so that I can assist you."
+    - text: "Yes, sure. How can I help you?"
+
+  utter_sad:
+    - text: "I'm sorry to hear that. I'm here for you. Talking about it might help. So, tell me why do you think you're feeling this way?"
+    - text: "I'm here for you. Could you tell me why you're feeling this way?"
+    - text: "Why do you think you feel this way?"
+    - text: "How long have you been feeling this way?"
+
+  utter_cheer_up:
+    - text: "Here is something to cheer you up"
+
+  utter_normalize_feelings:
+    - text: "It's okay to feel sad sometimes. It's a natural part of processing emotions."
+    - text: "Feeling sad can be overwhelming, but its a valid and normal response to difficult situations."
+  
+  utter_cbt_reframe:
+    - text: "Lets try to explore this together. What thoughts have been going through your mind when you feel this way?"
+    - text: "Sometimes our thoughts can amplify our feelings. Would you like to try reframing those thoughts together?"
+  
+  utter_not_talking:
+    - text: "Talking about something really helps. If you're not ready to open up then that's ok. Just know that I'm here for you, whenever you need me."
+    - text: "I want to help you. I really do. But in order for me to help you, you're gonna have to talk to me."
+    - text: "I'm here to listen to you and help you vent. So please talk to me."
+    - text: "You can talk to me without fear of judgement."
+
+  utter_joke:
+    - text: "Why don't skeletons fight each other? They don't have the guts!"
+    - text: "Why couldn't the bicycle stand up by itself? It was two-tired!"
+    - text: "I told my computer I needed a break, and now it won't stop sending me Kit-Kats!"
+    - text: "Why did the math book look sad? Because it had too many problems."
+    - text: "What do you get when you cross a snowman with a vampire? Frostbite!"
+
+  utter_stressed:
+    - text: "What do you think is causing this?"
+    - text: "I am sorry to hear that. What is the reason behind this?"
+  
+  utter_stressed_1: 
+    - text: "What are the thoughts that go through your mind when you're feeling stressed? Can you think about this?"
+    - text: "If a friend were experiencing these thoughts, what advice would you give them?  Can you think about this?"
+    - text: "Can you describe how your body feels when you're stressed? Where do you feel tension? Can you ponder about this think more about this?"
+
+  utter_stressed_2: 
+    - text: "Imagine yourself on a secluded beach at sunset. The sky is ablaze with hues of orange, pink, and purple, mirroring the calmness within you. The rhythmic crashing of waves against the shore washes away your worries, one by one. You feel the warm sand beneath your feet, grounding you in the present moment. Each deep breath you take fills your lungs with the salty air, carrying away the tension. You close your eyes and let the soothing sounds of the ocean lull you into a state of deep relaxation."
+    
+  utter_feel_better:
+    - text: "do you felt better"
+
+  utter_hope:
+    - text: "hope you felt better"
+    - text: "I hope that helped you"
+
+  utter_acknowledge_worthless:
+    - text: "It sounds like you're going through a difficult time. Feeling worthless is a common experience, but it doesn't define you. It's important to remember that these feelings are often temporary and don't reflect your true value as a person."
+    - text: "I'm so sorry to hear you're feeling this way. 💔 It's okay to feel down sometimes, but please remember, you are valuable and unique, even when it doesn't feel that way. 🌟"
+
+  utter_worthless:
+    - text: "Let's discuss further why you're feeling this way."
+    - text: "I first want to let you know that you are not alone in your feelings and there is always someone there to help. You can always change your feelings and change your way of thinking by being open to trying to change."
+    - text: "I first want to let you know that you are not alone in your feelings and there is always someone there to help. You can always change your feelings and change your way of thinking by being open to trying to change."
+
+  utter_sympathy:
+    - text: "I am so sorry you feel this way! But this isnt true"
+
+  utter_strengths:
+    - text: "Sometimes we are our own harshest critics. Can you think of one strength of yours"
+   
+  utter_anxious:
+    - text: "Don't be hard on yourself. What's the reason behind this?"
+    - text: "Can you tell me more about this feeling?"
+    - text: "I understand that it can be scary. Tell me more about it."
+    - text: "It sounds like you're feeling anxious. Can you tell me more about what's bringing on these feelings?"
+  
+  utter_333_rule: 
+    - text: " Okay Let us try out a simple activity to reduce your anxiety! Look around and name three things you can see. Listen carefully and name three sounds you can hear. Move three parts of your body"
+  
+  utter_sleep:
+    - text: "It sounds like you're having trouble sleeping. That can be really frustrating!Sometimes the body and mind just need time to unwind, and its important to be patient with yourself during these moments."
+  
+  utter_sleep_advice:
+    - text: "Here is a simple meditation technique to try out"
+  
+  utter_happy:
+    - text: "That's great to hear. I'm glad you're feeling this way."
+    - text: "That's great."
+
+  utter_depressed:
+    - text: "I am sorry to hear that! Depression can feel overwhelming, but I want you to know that you’re not alone in this, and it’s okay to feel this way"
+
+  utter_depressed_acknowledge:
+    - text: "Can you describe what your day-to-day has been like recently? Are there particular moments, situations, or thoughts that feel especially difficult for you?"
+ 
+  utter_adress_depressed_thoughts:
+    - text: "It sounds like your carrying a lot right now, and I want you to know that feeling this way is valid—this doesnt reflect any weakness or failure on your part."
+    - text: "I can sense how heavy things feel for you at the moment, and I want to reassure you that these feelings dont define your worth or strength."
+    - text: "It seems like your struggling with a lot, and its important to remind yourself that its okay to feel this way—it doesnt diminish who you are."
+    - text: "I hear the weight in what your sharing, and I want you to know that allowing yourself to feel this way is part of being human—its not a sign of weakness."
+    - text: "Its clear that your facing some really tough emotions, and I want to emphasize that its completely normal to feel this way sometimes—your not alone in this."
+
+  utter_gratitude_exercise:
+    - text: "lets do a simple activity!Think of one thing that made you smile today?"
+    - text: "lets do a simple activity!Think of one person who helped you feel supported?"
+    - text: "lets do a simple activity!What is one thing you appreciated about yourself today?"
+
+  utter_positive_affirmations: 
+    - text: "I am stronger than my struggles, and I will overcome them."
+    - text: "This feeling is temporary; brighter days are ahead.."
+    - text: "Its okay to not be okay. I am giving myself the grace to heal"
+    - text: "I have survived every difficult moment until now, and I will survive this one too."
+    - text: "I am not alone; I am supported, loved, and valued."
+
+    
+
+
+
+actions: 
+    - action_breathing_exercise
+    - action_generate_strengths_affirmations
+    - action_teach_meditation
